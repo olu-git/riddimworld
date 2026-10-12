@@ -98,3 +98,21 @@ function card(a, i, headliner) {
 document.getElementById("headliners").innerHTML = HEADLINERS.map((a, i) => card(a, i, true)).join("");
 document.getElementById("support").innerHTML = SUPPORT.map((a, i) => card(a, i)).join("");
 document.getElementById("hosts").innerHTML = HOSTS.map((a, i) => card(a, i + 2)).join("");
+
+// ---------- Slide-in: headliners first, then the rest of the bill, then hosts ----------
+// Each tier animates when it scrolls into view; cards alternate entering from left and right.
+if ("IntersectionObserver" in window) {
+  document.querySelector(".lineup").classList.add("js-slide");
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      [...e.target.children].forEach((c, i) => {
+        c.style.setProperty("--from", i % 2 ? "110vw" : "-110vw");
+        c.style.setProperty("--delay", `${i * 0.15}s`);
+        c.classList.add("in");
+      });
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.2 });
+  ["headliners", "support", "hosts"].forEach((id) => io.observe(document.getElementById(id)));
+}

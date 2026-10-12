@@ -261,3 +261,11 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
   .ticket-embed iframe { height: 85vh; }
 }
 .info-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ---------- Lineup entrance: acts slide in from off-screen, in billing order ---------- */
+.lineup { overflow-x: clip; }
+.js-slide .card { opacity: 0; transform: translateX(var(--from, -110vw)); }
+.js-slide .card.in {
+  opacity: 1; transform: none;
+  transition: transform .9s cubic-bezier(.2, .9, .25, 1.05) var(--delay, 0s), opacity .4s ease var(--delay, 0s);
+}
