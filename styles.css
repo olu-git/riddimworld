@@ -119,7 +119,9 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 .tier-title:first-child { margin-top: 44px; }
 .cards { display: grid; gap: clamp(14px, 2vw, 24px); }
 .cards.headliners { grid-template-columns: repeat(3, 1fr); }
-.cards.support { grid-template-columns: repeat(4, 1fr); }
+/* 4 then 3, last row centred */
+.cards.support { display: flex; flex-wrap: wrap; justify-content: center; }
+.cards.support .card { width: calc((100% - 3 * clamp(14px, 2vw, 24px)) / 4); }
 .cards.hosts { grid-template-columns: repeat(3, 1fr); }
 
 .card { display: flex; flex-direction: column; gap: 10px; }
@@ -236,7 +238,7 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
-  .cards.support { grid-template-columns: repeat(3, 1fr); }
+  .cards.support .card { width: calc((100% - 2 * clamp(14px, 2vw, 24px)) / 3); }
   .info .wrap { grid-template-columns: 1fr; }
   .info-flyer { max-width: 420px; }
 }
@@ -246,7 +248,8 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
   .nav-cta { grid-column: 3; grid-row: 1; }
   .nav-links { grid-column: 1 / -1; grid-row: 2; justify-content: center; font-size: 13px; }
   .cards.headliners, .cards.hosts { grid-template-columns: repeat(2, 1fr); }
-  .cards.support { grid-template-columns: repeat(2, 1fr); }
+  .cards.support .card { width: calc((100% - clamp(14px, 2vw, 24px)) / 2); }
+  .cards.support .card:last-child:nth-child(odd) .photo { aspect-ratio: 4 / 5; }
   /* odd card out (e.g. NSG) spans the full row instead of sitting alone */
   .cards .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .cards .card:last-child:nth-child(odd) .photo { aspect-ratio: 16 / 10; }

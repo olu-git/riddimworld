@@ -53,10 +53,6 @@ const SUPPORT = [
     instagram: "https://www.instagram.com/pk.dade/",
     tiktok: "https://www.tiktok.com/@pklevels",
     youtube: "https://www.youtube.com/@Pkdade" },
-  // Listed in the artist links doc but not on the poster — confirm billing
-  { name: "Taofiq",
-    instagram: "https://www.instagram.com/taofiqolo/",
-    tiktok: "https://www.tiktok.com/@tao97_" },
 ];
 
 const HOSTS = [
