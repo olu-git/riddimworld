@@ -1,286 +1,260 @@
-/* ============ RIDDIMWORLD — shared styles ============ */
+/* =====================================================================
+   RIDDIMWORLD 2026 — shared styles
+   Colours + type follow "RIDDIMWORLD Branding Guidelines V1.0"
+   ===================================================================== */
+
+@font-face {
+  font-family: "BT Brik XL";
+  src: url("assets/fonts/BTBrikXL.woff") format("woff");
+  font-display: swap;
+}
+
 :root {
-  --orange: #f26a1b;
-  --orange-deep: #d9550c;
-  --blue: #12b2f2;
-  --ink: #111111;
-  --white: #ffffff;
-  --red: #e8392b;
-  --display: "Archivo", "Arial Black", sans-serif;
+  /* Primary */
+  --cream: #dddac4;
+  --tangerine: #fb661d;
+  --inferno: #ff3421;
+  --aqua: #14aada;
+  /* Secondary */
+  --yellow: #f0c61a;
+  --green: #3bab43;
+  --navy: #342e72;
+  --magenta: #e123cd;
+
+  --ink: #141414;
+  --display: "BT Brik XL", "Arial Black", Impact, sans-serif;            /* Headline */
+  --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;                /* Secondary + body */
   --gutter: clamp(16px, 4vw, 48px);
   --max: 1240px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 body {
-  background: var(--orange);
-  color: var(--white);
-  font-family: var(--display);
-  font-variation-settings: "wdth" 125;
-  font-weight: 900;
-  text-transform: uppercase;
+  min-height: 100vh; display: flex; flex-direction: column;
+  background: var(--tangerine); color: var(--ink);
+  font-family: var(--sans); font-weight: 500; line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
+main { flex: 1; }
 a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: 1.02; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* ---------- Header / nav ---------- */
-.site-header {
-  position: sticky; top: 0; z-index: 50;
-  background: var(--orange);
-  border-bottom: 2px solid rgba(0,0,0,.08);
+/* Single-colour brand marks: the PNGs are white-on-transparent, so they're used as masks
+   and can take any palette colour via background-color. */
+.mask { display: block; background: currentColor; -webkit-mask: var(--src) center / contain no-repeat; mask: var(--src) center / contain no-repeat; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--display); text-transform: uppercase; font-size: 17px; letter-spacing: .02em;
+  padding: 15px 28px 13px; border: 3px solid var(--ink);
+  background: var(--yellow); color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink); transition: transform .12s, box-shadow .12s;
 }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--ink); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.btn.ghost { background: var(--cream); }
+.btn.dark { background: var(--ink); color: var(--cream); box-shadow: 5px 5px 0 var(--aqua); }
+.btn.dark:hover { box-shadow: 7px 7px 0 var(--aqua); }
+
+/* ---------- Header ---------- */
+.site-header { position: sticky; top: 0; z-index: 50; background: var(--tangerine); border-bottom: 3px solid var(--ink); }
 .nav {
-  max-width: var(--max); margin: 0 auto;
-  padding: 14px var(--gutter);
-  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  max-width: var(--max); margin: 0 auto; padding: 12px var(--gutter);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
 }
-.nav-links { display: flex; gap: clamp(12px, 2vw, 28px); font-size: 15px; letter-spacing: .02em; }
-.nav-links a, .nav-cta { position: relative; padding: 4px 0; }
-.nav-links a::after, .nav-cta::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 3px;
-  background: var(--white); transform: scaleX(0); transform-origin: left; transition: transform .2s;
+.nav-links { display: flex; gap: clamp(14px, 2.4vw, 32px); font-family: var(--display); text-transform: uppercase; font-size: 15px; color: var(--cream); }
+.nav-links a { position: relative; padding: 4px 0; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 3px; background: var(--cream);
+  transform: scaleX(0); transform-origin: left; transition: transform .2s;
 }
-.nav-links a:hover::after, .nav-links a[aria-current="page"]::after, .nav-cta:hover::after { transform: scaleX(1); }
-.logo { display: block; width: clamp(110px, 12vw, 150px); }
-.nav-cta { justify-self: end; font-size: 15px; }
+.nav-links a:hover::after, .nav-links a[aria-current="page"]::after { transform: scaleX(1); }
+.logo { width: clamp(120px, 13vw, 170px); aspect-ratio: 800 / 368; color: var(--cream); --src: url("assets/logo-riddimworld.png"); }
+.nav-cta { justify-self: end; font-size: 15px; padding: 11px 20px 9px; box-shadow: 4px 4px 0 var(--ink); }
+.nav-cta[aria-current="page"] { background: var(--cream); }
 
-/* ---------- Section band (blue title bar) ---------- */
+/* ---------- Section band (aqua title bar from the mockup) ---------- */
 .band {
-  background: var(--blue);
-  text-align: center;
-  padding: 10px var(--gutter);
-  font-size: clamp(26px, 4vw, 44px);
-  letter-spacing: .01em;
-  text-shadow: 0 2px 0 rgba(0,0,0,.08);
+  background: var(--aqua); color: var(--cream); text-align: center;
+  padding: 14px var(--gutter) 10px; font-size: clamp(28px, 4.4vw, 52px);
+  border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
 }
-section { scroll-margin-top: 70px; }
 
 /* ---------- Hero ---------- */
-.hero { padding: 20px var(--gutter) 48px; }
-.hero-frame {
-  position: relative; max-width: var(--max); margin: 0 auto;
-  aspect-ratio: 16 / 9; min-height: 440px;
-  border-radius: 6px; overflow: hidden;
-  /* Drop the final poster artwork at assets/hero.jpg — it will sit over this fallback scene */
-  background:
-    url("assets/hero.jpg") center / cover no-repeat,
-    linear-gradient(180deg, #8fd3f7 0%, #bfe7fb 45%, #e9f6fd 58%, #2a9fd0 58.2%, #1d86b8 70%, #f2d9a6 70.2%, #e8c88a 100%);
+.hero { background: var(--aqua); border-bottom: 3px solid var(--ink); }
+.hero img { width: 100%; height: auto; }
+.hero-bar {
+  background: var(--inferno); color: var(--cream); border-bottom: 3px solid var(--ink);
 }
-.hero-skyline { position: absolute; inset: auto 0 30% 0; height: 34%; opacity: .55; }
-.hero-stage { position: absolute; left: 50%; bottom: 14%; width: 26%; transform: translateX(-50%); }
-.hero-inner {
-  position: relative; height: 100%;
-  display: grid; grid-template-columns: 1fr 1.1fr 1fr; grid-template-rows: auto 1fr auto;
-  padding: clamp(14px, 2.4vw, 28px);
+.hero-bar .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 28px; padding-block: 18px;
 }
-.hero-logo { grid-column: 2; justify-self: center; width: clamp(150px, 22vw, 260px); }
-.hero-badge {
-  grid-column: 3; justify-self: end; align-self: start;
-  width: 56px; height: 34px; border: 3px solid var(--orange); border-radius: 50%;
-  display: grid; place-items: center; color: var(--orange); font-size: 9px;
-}
-.billing { display: flex; flex-direction: column; gap: 4px; align-self: center; }
-.billing.left { grid-column: 1; grid-row: 2; align-items: flex-start; }
-.billing.right { grid-column: 3; grid-row: 2; align-items: flex-end; }
-.tag {
-  background: var(--red); color: var(--white); padding: 2px 10px 0;
-  line-height: 1.05; white-space: nowrap;
-}
-.tag.alt { background: var(--orange); }
-.hosted, .venue { color: #2d3f73; font-size: clamp(10px, 1.2vw, 14px); padding-left: 2px; }
-.venue { display: block; margin-top: 2px; }
-.tag.xl { font-size: clamp(20px, 3.2vw, 38px); }
-.tag.md { font-size: clamp(13px, 1.7vw, 20px); }
-.tag.sm { font-size: clamp(10px, 1.25vw, 15px); }
-.billing .spacer { height: 10px; }
-.hero-date {
-  grid-column: 2; grid-row: 2; align-self: start; justify-self: center; text-align: center;
-  margin-top: 6px;
-}
-.hero-date .tag { display: block; margin: 0 auto 4px; width: fit-content; }
-.hero-sponsors {
-  grid-column: 1 / -1; grid-row: 3; justify-self: center;
-  display: flex; gap: clamp(12px, 2vw, 26px); align-items: center;
-  font-size: clamp(10px, 1.1vw, 13px); color: var(--white);
-  text-shadow: 0 1px 3px rgba(0,0,0,.4);
-}
-.hero-actions { max-width: var(--max); margin: 22px auto 0; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+.hero-bar p { font-family: var(--display); text-transform: uppercase; font-size: clamp(16px, 2vw, 24px); line-height: 1.15; }
+.hero-bar p small { display: block; font-family: var(--sans); font-weight: 700; font-size: 14px; letter-spacing: .04em; opacity: .9; margin-top: 4px; }
+.hero-bar .actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-.btn {
-  display: inline-block; padding: 14px 28px; border: 3px solid var(--ink);
-  background: var(--ink); color: var(--white); font-size: 16px;
-  box-shadow: 5px 5px 0 var(--blue); transition: transform .12s, box-shadow .12s;
+/* ---------- Marquee ("Meet your line-up", Afro Nation style) ---------- */
+.marquee { background: var(--navy); color: var(--yellow); overflow: hidden; border-bottom: 3px solid var(--ink); }
+.marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.marquee span {
+  font-family: var(--display); text-transform: uppercase; white-space: nowrap;
+  font-size: clamp(38px, 7vw, 96px); line-height: 1; padding: 18px 0 10px;
 }
-.btn:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--blue); }
-.btn.ghost { background: transparent; color: var(--ink); box-shadow: none; }
-.btn.ghost:hover { background: var(--ink); color: var(--white); }
+.marquee span::after { content: "✦"; color: var(--tangerine); margin: 0 .45em; font-size: .6em; vertical-align: .25em; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
 /* ---------- Lineup ---------- */
-.lineup { padding-bottom: 64px; }
-.cards {
-  max-width: var(--max); margin: 0 auto; padding: 32px var(--gutter) 0;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 2vw, 24px);
+.lineup { padding-bottom: 72px; }
+.tier-title {
+  display: flex; align-items: center; gap: 14px;
+  margin: 56px 0 20px; color: var(--cream); font-size: clamp(22px, 2.6vw, 32px);
 }
+.tier-title::after { content: ""; flex: 1; height: 3px; background: var(--ink); }
+.tier-title:first-child { margin-top: 44px; }
+.cards { display: grid; gap: clamp(14px, 2vw, 24px); }
+.cards.headliners { grid-template-columns: repeat(3, 1fr); }
+.cards.support { grid-template-columns: repeat(4, 1fr); }
+.cards.hosts { grid-template-columns: repeat(3, 1fr); }
+
 .card { display: flex; flex-direction: column; gap: 10px; }
 .photo {
   position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden;
-  background: linear-gradient(160deg, #ffe0c9, #ffb37f);
+  border: 3px solid var(--ink); background: var(--c, var(--aqua));
   display: grid; place-items: center;
 }
-.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s; }
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .35s; }
 .card:hover .photo img { transform: scale(1.04); }
-.photo .initial { font-size: 64px; color: rgba(0,0,0,.18); }
-.card h3 { color: var(--ink); font-size: clamp(14px, 1.4vw, 17px); }
-.card p {
-  font-family: "Archivo", sans-serif; font-variation-settings: "wdth" 100;
-  text-transform: none; font-weight: 600; font-size: 13px; line-height: 1.4; color: var(--white);
+.photo .initial { font-family: var(--display); font-size: clamp(56px, 7vw, 96px); color: var(--cream); opacity: .9; }
+.photo .badge {
+  position: absolute; left: 0; bottom: 14px; z-index: 1;
+  background: var(--inferno); color: var(--cream); font-family: var(--display); text-transform: uppercase;
+  padding: 6px 14px 4px; font-size: clamp(18px, 2.2vw, 30px); line-height: 1;
 }
-.socials { display: flex; gap: 10px; margin-top: auto; }
-.socials a { width: 22px; height: 22px; color: var(--white); transition: color .15s; }
-.socials a:hover { color: var(--ink); }
-.socials svg { width: 100%; height: 100%; }
+.card h3 { color: var(--ink); font-size: clamp(15px, 1.5vw, 19px); }
+.socials { display: flex; flex-wrap: wrap; gap: 12px; }
+.socials a { width: 22px; height: 22px; color: var(--ink); transition: color .15s, transform .15s; }
+.socials a:hover { color: var(--cream); transform: translateY(-2px); }
+.cards.support .photo, .cards.hosts .photo { border-radius: 18px; }
+.cards.support .socials a, .cards.hosts .socials a { width: 19px; height: 19px; }
 
-.cards.headliners { grid-template-columns: repeat(3, 1fr); }
-.tier-title {
-  max-width: var(--max); margin: 56px auto 0; padding: 0 var(--gutter);
-  color: var(--ink); font-size: clamp(18px, 2vw, 24px);
+/* ---------- Event info (home) ---------- */
+.info { background: var(--cream); border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+.info .wrap { display: grid; grid-template-columns: minmax(240px, 420px) 1fr; gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(40px, 6vw, 80px); }
+.info-flyer { width: 100%; border: 3px solid var(--ink); box-shadow: 10px 10px 0 var(--tangerine); }
+.info h2 { font-size: clamp(30px, 4.4vw, 56px); color: var(--navy); margin-bottom: 22px; }
+.facts { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin-bottom: 30px; }
+.facts li { font-size: 17px; font-weight: 700; }
+.facts li span {
+  display: block; font-family: var(--display); text-transform: uppercase; font-size: 13px; letter-spacing: .04em;
+  color: var(--tangerine); margin-bottom: 4px; font-weight: 400;
 }
-.cards.support, .cards.hosts { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); padding-top: 18px; }
-.cards.support .photo, .cards.hosts .photo { border-radius: 16px; }
-.cards.support .photo .initial, .cards.hosts .photo .initial { font-size: 40px; }
-.cards.support h3, .cards.hosts h3 { font-size: 13px; }
-.cards.support .socials a, .cards.hosts .socials a { width: 18px; height: 18px; }
+.facts a { text-decoration: underline; text-underline-offset: 3px; }
 
-/* ---------- Tickets ---------- */
-.tickets { padding-bottom: 64px; }
-.ticket-wrap { max-width: var(--max); margin: 0 auto; padding: 36px var(--gutter) 0; }
-.ticket-grid { display: grid; grid-template-columns: minmax(260px, 380px) 1fr; gap: clamp(18px, 3vw, 36px); align-items: start; }
-.ticket-info { background: var(--ink); color: var(--white); position: sticky; top: 96px; }
-.ticket-poster { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; }
-.ticket-facts { padding: 18px 20px 22px; }
-.ticket-facts h3 { font-size: 20px; color: var(--orange); margin-bottom: 12px; }
-.ticket-facts ul { list-style: none; display: grid; gap: 10px; }
-.ticket-facts li {
-  font-family: "Archivo", sans-serif; font-variation-settings: "wdth" 100; text-transform: none;
-  font-weight: 600; font-size: 14px; line-height: 1.35;
+/* ---------- Ticket types ("What will your vibe be?") ---------- */
+.vibes { padding: clamp(48px, 6vw, 84px) 0; }
+.vibes h2 { color: var(--cream); font-size: clamp(30px, 5vw, 64px); text-align: center; margin-bottom: clamp(24px, 4vw, 44px); }
+.vibe-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 32px); }
+.vibe {
+  position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 14px; min-height: 300px;
+  padding: clamp(22px, 3vw, 36px); border: 3px solid var(--ink); box-shadow: 10px 10px 0 var(--ink);
+  background: var(--aqua); color: var(--cream);
 }
-.ticket-facts li span {
-  display: block; font-family: var(--display); font-variation-settings: "wdth" 125; font-weight: 900;
-  text-transform: uppercase; font-size: 11px; color: var(--blue); letter-spacing: .04em;
+.vibe.vip { background: var(--navy); }
+.vibe::before {
+  content: ""; position: absolute; right: -60px; bottom: -40px; width: 320px; aspect-ratio: 800 / 368; opacity: .14;
+  background: var(--cream); -webkit-mask: url("assets/logo-riddimworld.png") center / contain no-repeat; mask: url("assets/logo-riddimworld.png") center / contain no-repeat;
 }
-.ticket-embed {
-  background: var(--white); border: 4px solid var(--ink); overflow: hidden;
-  box-shadow: 10px 10px 0 var(--ink);
-}
-.ticket-embed iframe { width: 100%; height: 820px; border: 0; display: block; }
-.ticket-note {
-  margin-top: 22px; font-size: 13px; text-align: center; color: var(--ink);
-  font-family: "Archivo", sans-serif; font-variation-settings: "wdth" 100; text-transform: none; font-weight: 600;
-}
-.ticket-note a { text-decoration: underline; }
-.ticket-fallback {
-  min-height: 620px; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 18px; padding: 32px; text-align: center; color: var(--ink);
-}
-.ticket-fallback h3 { font-size: clamp(22px, 3vw, 34px); color: var(--orange); }
-.ticket-fallback p {
-  font-family: "Archivo", sans-serif; font-variation-settings: "wdth" 100; text-transform: none;
-  font-weight: 600; max-width: 46ch; line-height: 1.5;
-}
+.vibe .kicker { font-family: var(--display); text-transform: uppercase; font-size: 14px; color: var(--yellow); }
+.vibe h3 { font-size: clamp(28px, 3.6vw, 46px); }
+.vibe p { max-width: 38ch; font-size: 16px; }
+.vibe .btn { align-self: flex-start; margin-top: auto; position: relative; }
 
-/* ---------- Footer ---------- */
-.site-footer { background: var(--blue); padding: 18px var(--gutter); }
-.sponsors {
-  max-width: var(--max); margin: 0 auto;
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(16px, 3vw, 40px);
-  font-size: clamp(12px, 1.4vw, 16px);
+/* ---------- Tickets page ---------- */
+.ticket-banner { height: clamp(170px, 28vw, 400px); background: #f2d6a8 url("assets/stage-banner.webp") center 65% / cover no-repeat; }
+.tickets { padding: 36px 0 72px; }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+.chip {
+  font-family: var(--display); text-transform: uppercase; font-size: clamp(13px, 1.4vw, 16px);
+  padding: 8px 14px 6px; border: 3px solid var(--ink); background: var(--cream); color: var(--ink);
 }
-.sponsors .mark { display: flex; align-items: center; gap: 6px; }
-.footer-meta {
-  max-width: var(--max); margin: 12px auto 0; text-align: center; font-size: 11px; opacity: .85;
-  letter-spacing: .04em;
-}
+.chip:nth-child(2) { background: var(--inferno); color: var(--cream); }
+.chip:nth-child(3) { background: var(--aqua); color: var(--cream); }
+.chip:nth-child(4) { background: var(--navy); color: var(--cream); }
+/* Megatix's white-label page is transparent around its ticket card, so the card sits straight on the brand background */
+.ticket-embed { max-width: 860px; margin: 0 auto; }
+.ticket-embed iframe { width: 100%; height: 700px; border: 0; display: block; }
+.ticket-note { margin-top: 22px; text-align: center; font-size: 14px; font-weight: 700; }
+.ticket-note a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- FAQ page ---------- */
-.faq { padding: 48px var(--gutter) 96px; min-height: 70vh; }
-.faq-list { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
-.faq-item { text-align: center; border-bottom: 3px solid rgba(0,0,0,.12); padding-bottom: 18px; }
+.faq { padding: 48px 0 96px; }
+.faq-list { max-width: 940px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-item { background: var(--cream); border: 3px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); }
 .faq-item summary {
-  list-style: none; cursor: pointer; color: var(--ink);
-  font-size: clamp(18px, 2.6vw, 30px); line-height: 1.15; padding: 6px 0;
-  display: flex; justify-content: center; align-items: center; gap: 14px;
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding: 18px 22px 15px; font-family: var(--display); text-transform: uppercase; font-size: clamp(16px, 2vw, 22px); line-height: 1.15;
 }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary::after {
-  content: "+"; font-size: .9em; color: var(--white); transition: transform .2s; flex: none;
+  content: "+"; flex: none; width: 34px; height: 34px; display: grid; place-items: center;
+  background: var(--tangerine); color: var(--cream); border: 3px solid var(--ink); font-size: 22px; transition: transform .2s;
 }
 .faq-item[open] summary::after { transform: rotate(45deg); }
-.faq-item .answer {
-  font-size: clamp(16px, 2.2vw, 26px); line-height: 1.2; padding-top: 8px; color: var(--white);
+.faq-item .answer { padding: 0 22px 20px; font-size: 17px; max-width: 70ch; }
+.faq-item .answer small { display: block; margin-top: 6px; font-size: 14px; opacity: .75; }
+.faq-cta { text-align: center; margin-top: 48px; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--aqua); color: var(--cream); border-top: 3px solid var(--ink); padding: 44px 0 28px; }
+.footer-top { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.footer-logo { width: 190px; aspect-ratio: 800 / 368; color: var(--cream); --src: url("assets/logo-riddimworld.png"); }
+.follow { display: flex; gap: 14px; }
+.follow a {
+  width: 50px; height: 50px; border-radius: 50%; background: var(--ink); color: var(--cream);
+  display: grid; place-items: center; transition: transform .15s, background .15s;
 }
-.faq-item .answer small {
-  display: block; margin-top: 6px; font-size: 14px; font-family: "Archivo", sans-serif;
-  font-variation-settings: "wdth" 100; text-transform: none; font-weight: 600; opacity: .9;
-}
-.faq-tools { max-width: 960px; margin: 0 auto 28px; display: flex; justify-content: center; }
-.faq-cta { text-align: center; margin-top: 56px; }
+.follow a:hover { transform: translateY(-3px); background: var(--navy); }
+.follow .mask { width: 22px; height: 22px; }
+.footer-nav { display: flex; gap: 22px; font-family: var(--display); text-transform: uppercase; font-size: 14px; }
+.footer-nav a:hover { color: var(--ink); }
+.partners { margin-top: 34px; padding-top: 26px; border-top: 2px solid rgba(221, 218, 196, .45); text-align: center; }
+.partners .label { font-family: var(--display); text-transform: uppercase; font-size: 12px; letter-spacing: .08em; margin-bottom: 18px; }
+.partner-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 22px clamp(24px, 4vw, 52px); }
+.partner-row .mask { height: 34px; color: var(--cream); }
+.partner-row .riddim { height: 46px; aspect-ratio: 3130 / 1920; }
+.partner-row .uncharted { aspect-ratio: 790 / 103; height: 18px; }
+.partner-row .megatix { aspect-ratio: 906 / 200; height: 28px; }
+.partner-row .nandos { aspect-ratio: 2133 / 387; height: 26px; }
+.partner-row .casamigos { aspect-ratio: 300 / 207; height: 46px; }
+.footer-meta { text-align: center; font-size: 12px; margin-top: 26px; opacity: .9; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
-  .cards, .cards.headliners { grid-template-columns: repeat(2, 1fr); }
+  .cards.support { grid-template-columns: repeat(3, 1fr); }
+  .info .wrap { grid-template-columns: 1fr; }
+  .info-flyer { max-width: 420px; }
 }
 @media (max-width: 720px) {
-  .nav { grid-template-columns: auto 1fr auto; gap: 12px; }
-  .nav-links { order: 3; grid-column: 1 / -1; justify-content: center; font-size: 13px; }
-  .logo { grid-column: 1; }
-  .nav-cta {
-    grid-column: 3; background: var(--ink); padding: 8px 12px; font-size: 13px;
-  }
-  .nav-cta::after { display: none; }
-
-  .hero-frame { aspect-ratio: auto; min-height: 0; }
-  .hero-inner { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto auto; gap: 14px; }
-  .hero-logo { grid-column: 1 / -1; grid-row: 1; }
-  .hero-badge { display: none; }
-  .hero-date { grid-column: 1 / -1; grid-row: 2; }
-  .billing.left { grid-column: 1; grid-row: 3; }
-  .billing.right { grid-column: 2; grid-row: 3; }
-  .hero-sponsors { grid-row: 4; flex-wrap: wrap; justify-content: center; }
-  .hero-stage { width: 46%; bottom: 8%; opacity: .5; }
-  .tag { white-space: normal; }
-
-  .ticket-grid { grid-template-columns: 1fr; }
-  .ticket-info { position: static; display: grid; grid-template-columns: 120px 1fr; }
-  .ticket-poster { height: 100%; aspect-ratio: auto; }
+  .nav { grid-template-columns: auto 1fr auto; }
+  .logo { grid-column: 1; grid-row: 1; }
+  .nav-cta { grid-column: 3; grid-row: 1; }
+  .nav-links { grid-column: 1 / -1; grid-row: 2; justify-content: center; font-size: 13px; }
+  .cards.headliners, .cards.hosts { grid-template-columns: repeat(2, 1fr); }
+  .cards.support { grid-template-columns: repeat(2, 1fr); }
+  /* odd card out (e.g. NSG) spans the full row instead of sitting alone */
+  .cards .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .cards .card:last-child:nth-child(odd) .photo { aspect-ratio: 16 / 10; }
+  .vibe-grid { grid-template-columns: 1fr; }
+  .facts { grid-template-columns: 1fr; }
+  .hero-bar .wrap { flex-direction: column; align-items: flex-start; }
+  .hero-bar .actions, .info-actions { width: 100%; }
+  .hero-bar .actions .btn, .info-actions .btn { flex: 1; padding-inline: 12px; font-size: 15px; }
   .ticket-embed iframe { height: 85vh; }
 }
-@media (max-width: 420px) {
-  .cards { gap: 12px; }
-  .cards.support, .cards.hosts { grid-template-columns: repeat(2, 1fr); }
-  .card p { font-size: 12px; }
-}
-
-/* ---------- Footer socials (Afro Nation-style round icons) ---------- */
-.follow { display: flex; justify-content: center; gap: 14px; margin-bottom: 18px; }
-.follow a {
-  width: 46px; height: 46px; border-radius: 50%;
-  background: var(--ink); color: var(--white);
-  display: grid; place-items: center; transition: transform .15s, background .15s;
-}
-.follow a:hover { transform: translateY(-3px); background: var(--orange); }
-.follow svg { width: 22px; height: 22px; }
-.site-footer { padding-top: 26px; padding-bottom: 22px; }
-
-/* ---------- Tickets page banner ---------- */
-.ticket-banner {
-  height: clamp(200px, 34vw, 420px);
-  background: url("assets/hero.jpg") center / cover no-repeat,
-              url("assets/poster.webp") center 86% / cover no-repeat,
-              var(--blue);
-}
-
-/* Keep the footer at the bottom on short pages */
-body { min-height: 100vh; display: flex; flex-direction: column; }
-main { flex: 1; }
+.info-actions { display: flex; gap: 14px; flex-wrap: wrap; }
