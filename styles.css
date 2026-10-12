@@ -107,7 +107,7 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 }
 .marquee span::after { content: "✦"; color: var(--tangerine); margin: 0 .45em; font-size: .6em; vertical-align: .25em; }
 @keyframes marquee { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation-duration: 60s; } }
 
 /* ---------- Lineup ---------- */
 .lineup { padding-bottom: 72px; }
