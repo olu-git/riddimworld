@@ -45,7 +45,7 @@ const SUPPORT = [
     instagram: "https://www.instagram.com/vv.ace/",
     tiktok: "https://www.tiktok.com/@vvace",
     youtube: "https://www.youtube.com/@VV-Ace" },
-  { name: "Alexandre",
+  { name: "Alexandre", photo: "alexandre.webp",
     instagram: "https://www.instagram.com/alexandre.permal/",
     tiktok: "https://www.tiktok.com/@alexandrepermal",
     youtube: "https://www.youtube.com/@alexandre.permal" },
