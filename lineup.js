@@ -1,5 +1,5 @@
 // ============ LINEUP DATA ============
-// Source: "ARTIST BIOS" doc in the RiddimWorld WEBSITE Drive folder.
+// Source: "ARTIST BIOS" doc in the RIDDIMWORLD WEBSITE Drive folder.
 // Order and tiers follow the official poster. Edit here to update the site.
 //   photo:  file in assets/artists/ (leave out to show the artist's initial on a brand colour)
 //   links:  leave a platform out to hide its icon
