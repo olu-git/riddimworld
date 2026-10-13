@@ -272,4 +272,4 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 }
 
 /* TikTok glyph is drawn smaller within its PNG, so scale it up to match Instagram/Email */
-.follow a[aria-label*="TikTok"] .mask { width: 28px; height: 28px; }
+.follow a[aria-label*="TikTok"] .mask { width: 32px; height: 32px; }
