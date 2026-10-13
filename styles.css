@@ -273,3 +273,7 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 
 /* TikTok icon file is trimmed to the glyph; 20px here matches its previous on-screen size */
 .follow a[aria-label*="TikTok"] .mask { width: 20px; height: 20px; }
+
+.faq-item .answer p + p, .faq-item .answer ul + p, .faq-item .answer p + ul { margin-top: 10px; }
+.faq-item .answer ul { padding-left: 22px; display: grid; gap: 6px; }
+.faq-item .answer a { text-underline-offset: 3px; }
