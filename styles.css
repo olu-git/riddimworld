@@ -271,5 +271,5 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
   transition: transform .9s cubic-bezier(.2, .9, .25, 1.05) var(--delay, 0s), opacity .4s ease var(--delay, 0s);
 }
 
-/* TikTok glyph is drawn smaller within its PNG, so scale it up to match Instagram/Email */
-.follow a[aria-label*="TikTok"] .mask { width: 32px; height: 32px; }
+/* TikTok icon file is trimmed to the glyph; 20px here matches its previous on-screen size */
+.follow a[aria-label*="TikTok"] .mask { width: 20px; height: 20px; }
