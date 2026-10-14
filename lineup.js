@@ -50,7 +50,7 @@ const SUPPORT = [
     instagram: "https://www.instagram.com/alexandre.permal/",
     tiktok: "https://www.tiktok.com/@alexandrepermal",
     youtube: "https://www.youtube.com/@alexandre.permal" },
-  { name: "PK",
+  { name: "PK", photo: "pk.webp",
     instagram: "https://www.instagram.com/pk.dade/",
     tiktok: "https://www.tiktok.com/@pklevels",
     youtube: "https://www.youtube.com/@Pkdade" },
