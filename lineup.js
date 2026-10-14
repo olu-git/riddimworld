@@ -64,7 +64,7 @@ const HOSTS = [
     instagram: "https://www.instagram.com/da_ddychulo/",
     tiktok: "https://www.tiktok.com/@da_ddychulo",
     youtube: "https://youtu.be/DbNtQ4knyIk" },
-  { name: "Jazmine Nikitta",
+  { name: "Jazmine Nikitta", photo: "jazmine-nikitta.webp",
     instagram: "https://www.instagram.com/jazminenikitta/",
     tiktok: "https://www.tiktok.com/@jazminenikitta",
     youtube: "https://www.youtube.com/@jazminenikitta" },
