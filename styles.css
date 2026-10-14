@@ -253,10 +253,10 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
   .cards.support .card:last-child:nth-child(odd) .photo { aspect-ratio: 4 / 5; }
   /* odd card out (e.g. NSG) spans the full row instead of sitting alone */
   .cards .card:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  .cards .card:last-child:nth-child(odd) .photo { aspect-ratio: 16 / 10; }
+  .cards .card:last-child:nth-child(odd) .photo { aspect-ratio: 5 / 4; }
   .vibe-grid { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr; }
-  .hero-bar .wrap { flex-direction: column; align-items: flex-start; }
+  .hero-bar .wrap { flex-direction: column; align-items: stretch; }
   .hero-bar .actions, .info-actions { width: 100%; }
   .hero-bar .actions .btn, .info-actions .btn { flex: 1; padding-inline: 12px; font-size: 15px; }
   .ticket-embed iframe { height: 85vh; }
@@ -277,3 +277,6 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 .faq-item .answer p + p, .faq-item .answer ul + p, .faq-item .answer p + ul { margin-top: 10px; }
 .faq-item .answer ul { padding-left: 22px; display: grid; gap: 6px; }
 .faq-item .answer a { text-underline-offset: 3px; }
+
+/* Hero bar now holds just the two buttons, centred */
+.hero-bar .wrap { justify-content: center; }

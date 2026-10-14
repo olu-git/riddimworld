@@ -14,7 +14,8 @@ const HEADLINERS = [
     instagram: "https://www.instagram.com/jeleeeel/",
     tiktok: "https://www.tiktok.com/@jeleelyeah",
     youtube: "https://www.youtube.com/@jeleeeeel" },
-  { name: "NSG", photo: "nsg.webp",
+  { name: "NSG", photo: "nsg.webp", photoWide: "nsg-wide.webp",  // wide shot used on phones, where this card spans the full row
+   
     spotify: "https://open.spotify.com/artist/31Ua7zSTJxegjyd49ujbSA",
     instagram: "https://www.instagram.com/nsg_music/",
     tiktok: "https://www.tiktok.com/@nsg.music",
@@ -83,7 +84,7 @@ function socials(a) {
 
 function card(a, i, headliner) {
   const media = a.photo
-    ? `<img src="assets/artists/${a.photo}" alt="${a.name}" loading="lazy">`
+    ? `<picture>${a.photoWide ? `<source media="(max-width: 720px)" srcset="assets/artists/${a.photoWide}">` : ""}<img src="assets/artists/${a.photo}" alt="${a.name}" loading="lazy"></picture>`
     : `<span class="initial" aria-hidden="true">${a.name[0]}</span>`;
   return `<article class="card">
     <div class="photo" style="--c:${SWATCHES[i % SWATCHES.length]}">
