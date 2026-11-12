@@ -179,6 +179,7 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 
 /* ---------- Tickets page ---------- */
 .ticket-banner { height: clamp(170px, 28vw, 400px); background: #f2d6a8 url("assets/stage-banner.webp") center 65% / cover no-repeat; }
+.ticket-banner + .band { border-top: 3px solid var(--ink); } /* keep the line between the tickets banner and its title band */
 .tickets { padding: 36px 0 72px; }
 .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
 .chip {
