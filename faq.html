@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/BTBrikXL.woff" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=faq2">
 </head>
 <body>
 
@@ -34,71 +34,161 @@
 
   <main>
     <h1 class="band">FAQ</h1>
-    <section class="faq">
+
+    <!-- 1. At-a-glance strip: the answers most people come for, before they even open a question -->
+    <section class="fx-glance" aria-label="Key details">
+      <div class="wrap fx-glance-row">
+        <div class="fx-fact"><span>Date</span><b>Sat 28 Nov</b></div>
+        <div class="fx-fact"><span>Gates</span><b>2pm – 10pm</b></div>
+        <div class="fx-fact hot"><span>Last entry</span><b>9pm</b></div>
+        <div class="fx-fact"><span>Age</span><b>18+ · Photo ID</b></div>
+        <div class="fx-fact hot"><span>Re-entry</span><b>None</b></div>
+      </div>
+    </section>
+
+    <!-- 2. Sticky search + category jump bar -->
+    <div class="fx-tools">
+      <div class="wrap fx-tools-row">
+        <label class="fx-search">
+          <span class="sr-only">Search the FAQ</span>
+          <input id="fx-q" type="search" placeholder="Search e.g. ID, parking, sunscreen" autocomplete="off">
+        </label>
+        <nav class="fx-chips" aria-label="FAQ sections">
+          <a href="#basics" style="--c:var(--aqua)">The Basics</a>
+          <a href="#on-the-day" style="--c:var(--magenta)">On the Day</a>
+          <a href="#getting-there" style="--c:var(--green)">Getting There</a>
+          <a href="#contact" style="--c:var(--navy)">Contact</a>
+        </nav>
+      </div>
+    </div>
+
+    <section class="faq fx">
       <div class="wrap">
-        <div class="faq-list">
-        <details class="faq-item" open>
-          <summary>When and where is RIDDIMWORLD?</summary>
-          <div class="answer"><p><strong>RIDDIMWORLD is happening on Saturday 28 November 2026, from 2pm–10pm, at Riviera Beach Club, Elwood, Melbourne.</strong></p><p>We'll be taking over the mainstage. Set times will be announced closer to the date.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Where do I buy tickets?</summary>
-          <div class="answer"><p>Tickets are only available through our <a href="tickets.html"><u>tickets page</u></a>, powered by Megatix.</p><p>Avoid third-party resellers. We can't guarantee tickets purchased elsewhere.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Is there an age restriction?</summary>
-          <div class="answer"><p>Yes, RIDDIMWORLD is strictly 18+.</p><p>You'll need to bring valid physical photo ID. Accepted ID includes an Australian or international driver's licence, learner permit, passport or state/territory proof of age card.</p><p><strong>No ID, no entry.</strong></p></div>
-        </details>
-        <details class="faq-item">
-          <summary>What time is last entry?</summary>
-          <div class="answer"><p><strong>Last entry is 9pm.</strong> Make sure you arrive before then!</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I get a refund?</summary>
-          <div class="answer"><p>All ticket sales are final. Refunds won't be provided for change of mind or inability to attend.</p><p>Refunds may be available if you selected Refundable Ticket Protection at checkout, subject to XCover's terms and conditions.</p><p>If you didn't purchase this protection, refunds will only be provided where required under Australian Consumer Law or in the event of a cancellation or other circumstances where a refund is required by law.</p><p>For more information, please refer to your XCover policy.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Is re-entry permitted?</summary>
-          <div class="answer"><p>No. RIDDIMWORLD has a strict no re-entry policy. Once you leave the festival, you won't be able to come back in, so plan accordingly.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>What can I bring to RIDDIMWORLD?</summary>
-          <div class="answer"><p>A few things to keep in mind before heading down:</p><ul><li>Empty water bottles are allowed.</li><li>Sunscreen lotion is allowed.</li><li>Mobile phones and GoPros are allowed.</li></ul><p>The following items are not permitted:</p><ul><li>Alcohol or drinks purchased outside the venue</li><li>Illegal drugs or prohibited substances</li><li>Weapons or dangerous items, including knives, laser pointers and selfie sticks</li><li>Glass bottles or containers</li><li>Large bags, suitcases or oversized backpacks</li><li>Umbrellas, portable seating, tables, eskies, tents or sun shelters</li><li>Flags, poles, signage, promotional materials or political messaging</li><li>Professional cameras or recording equipment without prior approval</li><li>Drones</li><li>Flares, fireworks, smoke bombs, confetti or streamers</li><li>Bikes, skateboards, scooters and other personal transport devices</li><li>Animals, excluding authorised guide dogs</li></ul><p>All attendees will be subject to security screening. Security may also prohibit additional items where considered necessary.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Can I bring prescription medication?</summary>
-          <div class="answer"><p>Yes, but it must be in its original packaging, with the pharmacy label clearly showing your name.</p><p>Please only bring the amount you need for the duration of the event. Medication that doesn't meet these requirements may not be permitted inside.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Will food and drinks be available?</summary>
-          <div class="answer"><p>Yes! Food and beverage options will be available throughout the venue.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>How do I get there?</summary>
-          <div class="answer"><p>RIDDIMWORLD is taking place at Riviera Beach Club, <a href="https://www.google.com/maps/search/?api=1&amp;query=42B+Marine+Parade+Elwood+VIC+3184" target="_blank" rel="noopener"><u>42B Marine Parade, Elwood VIC 3184</u></a>.</p><h4>Public Transport</h4><p>We recommend catching public transport where possible.</p><ul><li><strong>Tram 16:</strong> Get off at Luna Park / The Esplanade (Stop 138), then walk approximately 15 minutes to the venue.</li><li><strong>Trams 96 and 12:</strong> Travel to St Kilda, then walk approximately 15 minutes to the marina.</li></ul><p>Plan your journey using the <a href="https://www.ptv.vic.gov.au/" target="_blank" rel="noopener"><u>PTV website</u></a>.</p><h4>Rideshare &amp; Drop-off</h4><p>Uber and taxis are recommended. The surrounding roads can get busy, so allow extra time.</p><p>For a smoother drop-off, the venue recommends using Dickens Street and walking across at the pedestrian lights. Please avoid stopping directly on Marine Parade.</p><p>We'll share any additional event-day rideshare instructions closer to the date.</p><h4>Parking</h4><p>Parking around Elwood and St Kilda is very limited. There is no general public parking within the marina complex, so we recommend using public transport or rideshare.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Is there accessible parking and venue access?</summary>
-          <div class="answer"><p>The event grounds are wheelchair accessible, with a mix of grass and concrete areas. Please keep in mind that the grass may become soft or muddy if it rains.</p><p>Accessible parking must be arranged directly with Riviera Beach Club in advance. It cannot be organised on event day. Please contact <a href="mailto:info@rivierabeachclub.com.au"><u>info@rivierabeachclub.com.au</u></a> to make arrangements.</p><p>A dedicated accessible toilet is located to the right of the mainstage.</p><p>Companion Card holders are entitled to an additional ticket for their carer. Please bring your Companion Card alongside your event ticket.</p><p>Please note that the VIP area is located upstairs and accessed via stairs.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Is there seating at RIDDIMWORLD?</summary>
-          <div class="answer"><p>RIDDIMWORLD is a standing-only festival, with no reserved or dedicated seating in the General Admission areas.</p><p>Please note that portable chairs and other seating are not permitted inside the venue.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>What should I wear?</summary>
-          <div class="answer"><p>RIDDIMWORLD is an outdoor festival, so come dressed for a day in the sun!</p><p>We recommend festival fits, breathable clothing and comfortable footwear like sneakers. You'll be on your feet dancing throughout the day.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>What if I need first aid?</summary>
-          <div class="answer"><p>First responders will be onsite throughout the festival. Any security staff member can direct you to First Aid if needed.</p></div>
-        </details>
-        <details class="faq-item">
-          <summary>Still got a question?</summary>
-          <div class="answer"><p>Give us a shout!</p><p>Email us at <a href="mailto:info@riddim.com.au"><u>info@riddim.com.au</u></a> or DM <a href="https://www.instagram.com/riddimworld.au" target="_blank" rel="noopener"><u>@riddimworld.au</u></a> on Instagram.</p><p>For ticketing issues, contact <a href="mailto:support@megatix.com.au"><u>support@megatix.com.au</u></a>.</p></div>
-        </details>
+
+        <!-- ===== THE BASICS ===== -->
+        <div class="fx-group" id="basics" style="--c:var(--aqua)">
+          <div class="fx-group-head"><h2>The Basics</h2><button class="fx-toggle" type="button">Open all</button></div>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary><i>01</i>When and where is RIDDIMWORLD?</summary>
+              <div class="answer"><p><strong>RIDDIMWORLD is happening on Saturday 28 November 2026, from 2pm–10pm, at Riviera Beach Club, Elwood, Melbourne.</strong></p><p>We'll be taking over the mainstage. Set times will be announced closer to the date.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>02</i>Where do I buy tickets?</summary>
+              <div class="answer"><p>Tickets are only available through our <a href="tickets.html"><u>tickets page</u></a>, powered by Megatix.</p><p>Avoid third-party resellers. We can't guarantee tickets purchased elsewhere.</p><p class="fx-inline-cta"><a class="btn" href="tickets.html">Buy Tickets</a></p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>03</i>Is there an age restriction?</summary>
+              <div class="answer"><p>Yes, RIDDIMWORLD is strictly 18+.</p><p>You'll need to bring valid physical photo ID. Accepted ID includes an Australian or international driver's licence, learner permit, passport or state/territory proof of age card.</p><p class="fx-callout"><strong>No ID, no entry.</strong></p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>04</i>What time is last entry?</summary>
+              <div class="answer"><p><strong>Last entry is 9pm.</strong> Make sure you arrive before then!</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>05</i>Can I get a refund?</summary>
+              <div class="answer"><p>All ticket sales are final. Refunds won't be provided for change of mind or inability to attend.</p><p>Refunds may be available if you selected Refundable Ticket Protection at checkout, subject to XCover's terms and conditions.</p><p>If you didn't purchase this protection, refunds will only be provided where required under Australian Consumer Law or in the event of a cancellation or other circumstances where a refund is required by law.</p><p>For more information, please refer to your XCover policy.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>06</i>Is re-entry permitted?</summary>
+              <div class="answer"><p>No. RIDDIMWORLD has a strict no re-entry policy. Once you leave the festival, you won't be able to come back in, so plan accordingly.</p></div>
+            </details>
+          </div>
         </div>
-        <div class="faq-cta"><a class="btn" href="tickets.html">Buy Tickets</a></div>
+
+        <!-- ===== ON THE DAY ===== -->
+        <div class="fx-group" id="on-the-day" style="--c:var(--magenta)">
+          <div class="fx-group-head"><h2>On the Day</h2><button class="fx-toggle" type="button">Open all</button></div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary><i>07</i>What can I bring to RIDDIMWORLD?</summary>
+              <div class="answer">
+                <p>A few things to keep in mind before heading down:</p>
+                <div class="fx-split">
+                  <div class="fx-box yes">
+                    <h4>Allowed</h4>
+                    <ul><li>Empty water bottles are allowed.</li><li>Sunscreen lotion is allowed.</li><li>Mobile phones and GoPros are allowed.</li></ul>
+                  </div>
+                  <div class="fx-box no">
+                    <h4>The following items are not permitted</h4>
+                    <ul><li>Alcohol or drinks purchased outside the venue</li><li>Illegal drugs or prohibited substances</li><li>Weapons or dangerous items, including knives, laser pointers and selfie sticks</li><li>Glass bottles or containers</li><li>Large bags, suitcases or oversized backpacks</li><li>Umbrellas, portable seating, tables, eskies, tents or sun shelters</li><li>Flags, poles, signage, promotional materials or political messaging</li><li>Professional cameras or recording equipment without prior approval</li><li>Drones</li><li>Flares, fireworks, smoke bombs, confetti or streamers</li><li>Bikes, skateboards, scooters and other personal transport devices</li><li>Animals, excluding authorised guide dogs</li></ul>
+                  </div>
+                </div>
+                <p>All attendees will be subject to security screening. Security may also prohibit additional items where considered necessary.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary><i>08</i>Can I bring prescription medication?</summary>
+              <div class="answer"><p>Yes, but it must be in its original packaging, with the pharmacy label clearly showing your name.</p><p>Please only bring the amount you need for the duration of the event. Medication that doesn't meet these requirements may not be permitted inside.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>09</i>Will food and drinks be available?</summary>
+              <div class="answer"><p>Yes! Food and beverage options will be available throughout the venue.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>10</i>Is there seating at RIDDIMWORLD?</summary>
+              <div class="answer"><p>RIDDIMWORLD is a standing-only festival, with no reserved or dedicated seating in the General Admission areas.</p><p>Please note that portable chairs and other seating are not permitted inside the venue.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>11</i>What should I wear?</summary>
+              <div class="answer"><p>RIDDIMWORLD is an outdoor festival, so come dressed for a day in the sun!</p><p>We recommend festival fits, breathable clothing and comfortable footwear like sneakers. You'll be on your feet dancing throughout the day.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary><i>12</i>What if I need first aid?</summary>
+              <div class="answer"><p>First responders will be onsite throughout the festival. Any security staff member can direct you to First Aid if needed.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <!-- ===== GETTING THERE & ACCESS ===== -->
+        <div class="fx-group" id="getting-there" style="--c:var(--green)">
+          <div class="fx-group-head"><h2>Getting There &amp; Access</h2><button class="fx-toggle" type="button">Open all</button></div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary><i>13</i>How do I get there?</summary>
+              <div class="answer">
+                <p>RIDDIMWORLD is taking place at Riviera Beach Club, <a href="https://www.google.com/maps/search/?api=1&amp;query=42B+Marine+Parade+Elwood+VIC+3184" target="_blank" rel="noopener"><u>42B Marine Parade, Elwood VIC 3184</u></a>.</p>
+                <div class="fx-cards">
+                  <div class="fx-card">
+                    <h4>Public Transport</h4>
+                    <p>We recommend catching public transport where possible.</p>
+                    <ul><li><strong>Tram 16:</strong> Get off at Luna Park / The Esplanade (Stop 138), then walk approximately 15 minutes to the venue.</li><li><strong>Trams 96 and 12:</strong> Travel to St Kilda, then walk approximately 15 minutes to the marina.</li></ul>
+                    <p>Plan your journey using the <a href="https://www.ptv.vic.gov.au/" target="_blank" rel="noopener"><u>PTV website</u></a>.</p>
+                  </div>
+                  <div class="fx-card">
+                    <h4>Rideshare &amp; Drop-off</h4>
+                    <p>Uber and taxis are recommended. The surrounding roads can get busy, so allow extra time.</p>
+                    <p>For a smoother drop-off, the venue recommends using Dickens Street and walking across at the pedestrian lights. Please avoid stopping directly on Marine Parade.</p>
+                    <p>We'll share any additional event-day rideshare instructions closer to the date.</p>
+                  </div>
+                  <div class="fx-card">
+                    <h4>Parking</h4>
+                    <p>Parking around Elwood and St Kilda is very limited. There is no general public parking within the marina complex, so we recommend using public transport or rideshare.</p>
+                  </div>
+                </div>
+                <p class="fx-inline-cta"><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=42B+Marine+Parade+Elwood+VIC+3184" target="_blank" rel="noopener">Get directions</a></p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary><i>14</i>Is there accessible parking and venue access?</summary>
+              <div class="answer"><p>The event grounds are wheelchair accessible, with a mix of grass and concrete areas. Please keep in mind that the grass may become soft or muddy if it rains.</p><p>Accessible parking must be arranged directly with Riviera Beach Club in advance. It cannot be organised on event day. Please contact <a href="mailto:info@rivierabeachclub.com.au"><u>info@rivierabeachclub.com.au</u></a> to make arrangements.</p><p>A dedicated accessible toilet is located to the right of the mainstage.</p><p>Companion Card holders are entitled to an additional ticket for their carer. Please bring your Companion Card alongside your event ticket.</p><p>Please note that the VIP area is located upstairs and accessed via stairs.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <p class="fx-empty" hidden>No matches. Try another word, or ask us below.</p>
+
+        <!-- ===== CONTACT (was question 15, now a panel) ===== -->
+        <div class="fx-contact" id="contact">
+          <h2>Still got a question?</h2>
+          <p>Give us a shout!</p>
+          <div class="fx-contact-row">
+            <a class="btn" href="mailto:info@riddim.com.au">Email info@riddim.com.au</a>
+            <a class="btn ghost" href="https://www.instagram.com/riddimworld.au" target="_blank" rel="noopener">DM @riddimworld.au</a>
+          </div>
+          <p class="fx-small">For ticketing issues, contact <a href="mailto:support@megatix.com.au"><u>support@megatix.com.au</u></a>.</p>
+        </div>
+
       </div>
     </section>
   </main>
@@ -132,5 +222,6 @@
       <p class="footer-meta">RIDDIMWORLD © 2026 · 28 November 2026 · Riviera Beach Club, Elwood, Melbourne</p>
     </div>
   </footer>
+  <script src="faq.js"></script>
 </body>
 </html>
