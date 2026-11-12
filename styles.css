@@ -280,3 +280,5 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 400; text-trans
 
 /* Hero bar now holds just the two buttons, centred */
 .hero-bar .wrap { justify-content: center; }
+.faq-item .answer h4 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 15px; color: var(--tangerine); margin-top: 16px; }
+.faq-item .answer ul + ul, .faq-item .answer p + h4 { margin-top: 10px; }
